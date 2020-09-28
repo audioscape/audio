@@ -64,12 +64,20 @@ $(document).ready(function () {
                 if (window.speechSynthesis.speaking) {
                     console.log("changing voice");
 
-                    window.speechSynthesis.pause();
-                    //u.voice = voice;
-                    window.speechSynthesis.resume();
-                    //window.speechSynthesis.speak(u);
+                    //window.speechSynthesis.pause();
+                    //window.speechSynthesis.resume();
+
+                    window.speechSynthesis.cancel();
+                    u.voice = voice;
+                    window.speechSynthesis.speak(u);
 
                     //playCurrentPost();
+                } else {
+                    window.speechSynthesis.cancel();
+                    $(".listenButton").hide();
+                    $(".pauseButton").show();
+                    u.voice = voice;
+                    window.speechSynthesis.speak(u);
                 }
                 break;
             }
@@ -143,6 +151,7 @@ $(document).ready(function () {
 
                     
                     u.voice = voice;
+                    //u.rate = 1.8;
                     window.speechSynthesis.speak(u);
 
                 //}

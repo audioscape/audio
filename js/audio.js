@@ -35,18 +35,41 @@ function populateVoiceList() {
   }
 }
 
+// var synth = window.speechSynthesis;
+var voices = [], voice, chunkLength = 120, lastfeedReadByDateIndex = 0,
+    lastfeedReadByGrpIndex = 0,
+    pattRegex = new RegExp(
+            '^[\\s\\S]{' + Math.floor(chunkLength / 2) + ','
+            + chunkLength + '}[.!?,]{1}|^[\\s\\S]{1,' + chunkLength 
+            + '}$|^[\\s\\S]{1,' + chunkLength + '} ')
+    ;
 
+
+
+
+
+$(document).ready(function () {
+    
+    window.speechSynthesis.cancel();
+
+    var this2 = $(".tts").text();
+    var u = new SpeechSynthesisUtterance(this2.trim());
 
 
     $(document).on("change", "#voiceSelect", function(e) {
-        
         var selectedOption = $(this)[0].selectedOptions[0].getAttribute('data-name');
         for(var j = 0; j < voices.length ; j++) {
             if(voices[j].name === selectedOption) {
                 voice = voices[j];
                 if (window.speechSynthesis.speaking) {
                     console.log("changing voice");
-                    playCurrentPost();
+
+                    window.speechSynthesis.pause();
+                    //u.voice = voice;
+                    window.speechSynthesis.resume();
+                    //window.speechSynthesis.speak(u);
+
+                    //playCurrentPost();
                 }
                 break;
             }
@@ -100,19 +123,29 @@ function populateVoiceList() {
         $(".pauseButton").show();
         e.preventDefault();
         console.log('.listenButton clicked');
-        if (window.speechSynthesis.paused && window.speechSynthesis.pending) {
+        if (window.speechSynthesis.paused || window.speechSynthesis.pending) {
             // if paused & pending, restart the utterance.
             console.log('should resume if interupted');
             window.speechSynthesis.resume();
             
         } else {
+
+            //window.speechSynthesis.cancel(); // Seems to be needed to clear after reload.
+
             // else start reading the next post.
             
             // playloop = setInterval(function() {
-                if (!window.speechSynthesis.speaking) {
+                //if (!window.speechSynthesis.speaking) {
                     console.log('restarting play');
-                    playCurrentPost();
-                }
+                    
+                    // Reactivate for Facebook
+                    //playCurrentPost();
+
+                    
+                    u.voice = voice;
+                    window.speechSynthesis.speak(u);
+
+                //}
             // }, 3000);
         }
     });
@@ -120,15 +153,14 @@ function populateVoiceList() {
     $(document).on('click', '.pauseButton', function(e) {
         $(this).hide();
         window.speechSynthesis.pause();
-        window.speechSynthesis.cancel();
-        clearTimeout(playloop);
+        //window.speechSynthesis.cancel();
+
+        // Reactivate for Facebook
+        //clearTimeout(playloop);
         $(".listenButton").show();
     });
 
 
-
-$(document).ready(function () {
-    
   // populate voice list -- starts
 
   if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {

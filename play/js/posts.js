@@ -654,14 +654,7 @@ function showAmPm(inDate) {
     return (" pm");
 }
 
-// var synth = window.speechSynthesis;
-var voices = [], voice, chunkLength = 120, lastfeedReadByDateIndex = 0,
-    lastfeedReadByGrpIndex = 0,
-    pattRegex = new RegExp(
-            '^[\\s\\S]{' + Math.floor(chunkLength / 2) + ','
-            + chunkLength + '}[.!?,]{1}|^[\\s\\S]{1,' + chunkLength 
-            + '}$|^[\\s\\S]{1,' + chunkLength + '} ')
-    ;
+
 
 
 

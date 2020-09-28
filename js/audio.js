@@ -61,10 +61,33 @@ var voices = [], voice, chunkLength = 120, lastfeedReadByDateIndex = 0,
 
 $(document).ready(function () {
     
+    var block_to_insert;
+    var container_block;
+    var buttons_to_insert;
+     
+    block_to_insert = document.createElement( 'div' ); // float:left; margin-top:4px; margin-right:10px;
+    block_to_insert.style.cssText = "float:left;";
+    block_to_insert.innerHTML = '<select id="voiceSelect" style="font-size:22px"></select>' ;
+     
+    container_block = document.getElementById( 'audioscape-output-control' );
+    container_block.style.cssText = "overflow:auto;";
+    container_block.appendChild( block_to_insert );
+
+    buttons_to_insert = document.createElement( 'div' ); // float:left;
+    buttons_to_insert.style.cssText = "float:left;margin-top:-3px;margin-left:6px;";
+    buttons_to_insert.innerHTML = '<i class="skipPrevious material-icons" style="display:none;cursor:pointer">skip_previous</i>';
+    buttons_to_insert.innerHTML += '<i class="listenButton material-icons" style="font-size:36px;cursor:pointer">play_circle_outline</i>'
+    buttons_to_insert.innerHTML += '<i class="pauseButton material-icons" style="font-size:36px;cursor:pointer;display:none;">pause_circle_outline</i>'
+            
+    //buttons_to_insert.innerHTML += '<i class="skipNext material-icons">skip_next</i>';
+    container_block.appendChild( buttons_to_insert ); 
+        
+
+
     let currentSentenceIndex = 0;
     window.speechSynthesis.cancel();
 
-    var theText = $(".tts").text().toString().trim();
+    var theText = $(".audioscape > p").text().toString().trim();
 
     // https://stackoverflow.com/questions/11761563/javascript-regexp-for-splitting-text-into-sentences-and-keeping-the-delimiter
     let sentenceArray = theText.match(/([^\.!\?]+[\.!\?]+)|([^\.!\?]+$)/g);

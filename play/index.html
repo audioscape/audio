@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AudioScape - Play</title>
+    <!-- for button class, planning to eliminate use of default.css and base.css -->
+
+    <!--
+        ["Facebook returned an error: ",{"message":"(#10) To use 'Page Public Content Access', your use of this endpoint must be reviewed and approved by Facebook. To submit this 'Page Public Content Access' feature for review please read our documentation on reviewable features: https://developers.facebook.com/docs/apps/review.","type":"OAuthException","code":10,"fbtrace_id":"AdrgNrYNR5Lu6837T8ypM4h"}]
+ /jquery/content/facebook/js/posts.js:92
+Show popup with errors details on glenwoodpark.comShow error notification icon on glenwoodpark.com
+-->
+
+    <link type="text/css" href="css/default.css" rel="stylesheet" />
+    
+
+    <link type="text/css" href="css/base.css" rel="stylesheet" />
+    
+    <link type="text/css" href="css/posts.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/browserutil.js"></script>
+    <style type="text/css">
+        h1, h2
+        {
+            font-family: calibri, helvetica, arial, sans-serif;
+        }
+        a
+        {
+            color: #0E7FC7;
+        }
+        .fbExpanded
+        {
+            display: none;
+        }
+        .fbCondensed
+        {
+            display: block;
+        }
+        body
+        {
+            padding: 40px;
+        }
+
+        .numberCircle {
+          margin-top:6px;
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border-radius: 50%;
+          text-align: center;
+          font-size: 29px;
+          font-weight: bold;
+          color:#fff;
+          background:#999;
+          margin-right:8px;
+        }
+        .numberCircle div {
+            margin-top: -3px;
+        }
+
+    </style>
+</head>
+<body style="margin: 0px">
+
+<!-- CONTROLS -->
+    <div class="audioControls">
+        <div class="audioControlsTitle">Play Audio</div>
+        
+        <div style="float:right">
+            <a href="https://github.com/audioscape/audio"><img src="../img/logo/github.png" style="height:32px; margin: 8px 8px 2px 1.5px"></a>
+        </div>
+        <div style="float:right">
+            <div class='fbDetails button button-grey button-sm' style='margin: 10px 4px 2px 0px'>
+                Expand</div>
+            <div class='fbShrink button button-grey button-sm' style='display: none; margin: 10px 4px 2px 0px'>
+                Shrink</div>
+            
+            <!--
+            <div class='fbSrtByGroup button button-grey button-sm' style='margin: 10px 10px 0px 0px'>
+                By Group</div>
+            <div class='fbSrtByDate button button-grey button-sm' style='display: none; margin: 10px 10px 0px 0px'>
+                By Date</div>
+            -->
+
+            
+        </div>
+    </div>
+    <br><br><br>
+
+   
+
+
+    <div style="float:right">
+        <div class="si-wrapper" style="float:left;">
+            <button class="si-btn" style="display:none">
+                speech input
+                <i class="material-icons" style="font-size:30px !important;">&#xE029;</i>
+                <span class="si-holder"></span>
+            </button>
+            <input class="aiName textInput si-input" type="text" value="Georgia" maxlength="300" placeholder="Georgia" />
+
+        </div>
+    </div>
+
+    <h3 style="margin:0px">
+
+    <div style="font-family: calibri, helvetica, arial, sans-serif;
+    font-size: 24.5px; float: left;">
+        <div style="float:left;margin-right:10px">
+            <i class="skipPrevious material-icons" style="display:none;">skip_previous</i>
+            <i class="listenButton material-icons">play_circle_outline</i>
+            <i class="pauseButton material-icons" style="display:none;">pause_circle_outline</i>
+            <i class="skipNext material-icons">skip_next</i>
+        </div>
+        <div style="float:left;margin-top:4px">
+            <select id="voiceSelect"></select>
+        </div>
+    </div>
+
+    <!--
+    To listen, <a class="listenButton">click play</a>
+    -->
+    </h3><br>
+<!-- /CONTROLS -->
+
+
+    <div style="clear:both"></div>
+    <br>
+    
+     Needs help:<br><br>
+
+     This page originally pulled feeds from Facebook.<br>
+            Error says to see these two pages for access setting:<br><br>
+
+            <a href="https://developers.facebook.com/docs/apps/review/login-permissions#manage-pages">manage-pages</a> and
+
+            <a href="https://developers.facebook.com/docs/apps/review/feature#reference-PAGES_ACCESS">pages access</a>
+
+
+    
+
+        <!-- (FQL) -->
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            fbToken = '117370968285365|5XkqBE8fUp29ZaTRAMTmAAfCFvk'; // Access token from Neighborhood App.
+            //showComments = false;
+            fbLimit = 20;
+            fbOffset = 0;
+            fbShowControls = true;
+            includePublicFeed = true;
+
+            // fbFolder = 'GrantParkGPNA';
+            // fbFolder = 'GPCPschool';
+            // fbFolder = '285182178269780'; // Carla Smith
+
+            //fbAdminID = "129055803796451"; // gpna - Does not appear to be needed,
+
+            //fbFolder = 'GlenwoodParkAtlanta';
+            //fbAdminID = '291472227559838';
+            
+            //fbFolder = 'southeast.atlanta';
+            //fbAdminID = '1155132781171052'; // Facebook Page ID
+
+            //fbFolder = 'Atlanta-City-Council-Member-Carla-Smith-285182178269780';
+            //fbAdminID = ''; 
+
+            // Parks
+//            showComments = false;
+//            includePublicFeed = false;
+//            fbShowControls = true; // show the More button
+//            fbFolder = "georgiastateparks";
+//            fbAdminID = "220165609304";
+//            // End Parks
+
+
+            fbInit();
+            //fbFetch("285182178269780,GrantParkGPNA,peoplestownneighborhoodassociation,Peoplestown");
+            fbFetch("georgiastateparks,friendsofgastateparks");
+            // orderCommentsByMostRecent();
+        });
+    </script>
+
+    <div class="newsfeed"></div>
+    <!--
+    <div id="loadMoreFbFeeds" class=' button button-grey button-sm' style='float:right; margin:10px 10px 0px 0px'>10 More</div>
+    <div class='fbShowPublicPosts button button-grey button-sm' style='float:right; margin:10px 10px 0px 0px'>Show Public Posts</div>
+    <div class='fbHidePublicPosts button button-grey button-sm' style='display:none; float:right; margin:10px 10px 0px 0px'>Hide Public Posts</div>
+    -->
+
+    <br>
+
+
+</body>
+
+<script type="text/javascript" src="../js/audio.js"></script>
+<script type="text/javascript" src="js/posts.js"></script>
+
+<script type="text/javascript" src="js/URI.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<!-- moment("2016-09-09T21:02:40+0000").fromNow(); -->
+<!-- <script type="text/javascript" src="js/posts-event-title-inline.js"></script>-->
+
+</html>

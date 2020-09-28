@@ -74,11 +74,11 @@ $(document).ready(function () {
                     //playCurrentPost();
                 } else {
                     window.speechSynthesis.cancel();
-                    $(".listenButton").hide();
-                    $(".pauseButton").show();
                     u.voice = voice;
                     window.speechSynthesis.speak(u);
                 }
+                $(".listenButton").hide();
+                $(".pauseButton").show();
                 break;
             }
         }

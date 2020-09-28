@@ -144,6 +144,7 @@ $(document).ready(function () {
             
             // playloop = setInterval(function() {
                 //if (!window.speechSynthesis.speaking) {
+                    window.speechSynthesis.cancel();
                     console.log('restarting play');
                     
                     // Reactivate for Facebook

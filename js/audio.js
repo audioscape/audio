@@ -37,14 +37,20 @@ function populateVoiceList() {
     
     option.setAttribute('data-lang', voices[i].lang);
     option.setAttribute('data-name', voices[i].name);
-    if(voices[i].default) {
-        //option.textContent += ' -- DEFAULT';
-        voice = voices[i];
-        option.setAttribute('selected', "selected");
-    } else if (voices[i].name == "Google UK English Male") {
+
+    
+    if (voices[i].name == "Fiona") {
         voice = voices[i];
         option.setAttribute('selected', "selected");
     }
+    /*
+    if(voices[i].default) {
+        //option.textContent += ' -- DEFAULT';
+        alert("ok")
+        voice = voices[i];
+        option.setAttribute('selected', "selected");
+    }
+    */
     document.getElementById("voiceSelect").appendChild(option);
   }
 }
@@ -67,7 +73,7 @@ $(document).ready(function () {
      
     block_to_insert = document.createElement( 'div' ); // float:left; margin-top:4px; margin-right:10px;
     block_to_insert.style.cssText = "float:left;";
-    block_to_insert.innerHTML = '<select id="voiceSelect" style="font-size:22px"></select>' ;
+    block_to_insert.innerHTML = '<select id="voiceSelect" style="font-size:22px; max-width:200px"></select>' ;
      
     container_block = document.getElementById( 'audioscape-output-control' );
     container_block.style.cssText = "overflow:auto;";
@@ -235,7 +241,7 @@ $(document).ready(function () {
 
         u.voice = voice;
         u.index = index;
-        //u.rate = 1.8;
+        u.rate = .85;
         u.onend = function (event) {
             //t = event.timeStamp - t;
             //console.log(event.timeStamp);

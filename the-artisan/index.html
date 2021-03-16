@@ -22,12 +22,29 @@
   <script type="text/javascript" src="/audioscape/js/common/common.js"></script>
   <link type="text/css" rel="stylesheet" href="/audioscape/css/all.css">
 
+
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/base.css" />
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/d3.v5.min.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/jquery.min.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/localsite.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/showdown.min.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/navigation.js"></script>
+  <!--
+  <link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/bootstrap.darkly.min.css">
+  -->
+  <script type="text/javascript" src="/audioscape/js/common/common.js"></script>
+  <link type="text/css" rel="stylesheet" href="../../css/all.css">
+
   <script>
-      param.titleArray = ["island","studio"]
-      param.startTitle = "Island Studio"
-      param.headerLogoX = "<img src='img/logo/[].png' style='width:28px'>";
+      param.titleArray = ["audio","scape"]
+      param.headerLogo = "🎧 "; // headphones
+      param.startTitle = "AudioScape"
+    param.headerLogoX = "<img src='img/logo/[].png' style='width:28px'>";
       param.headerFileX = "../../header.html"
       param.footer = "../../footer.html"
+      $(window).scroll(function(){$(".herocenter").css("opacity", 1 - $(window).scrollTop() / 200);});
   </script>
 
 
@@ -54,9 +71,35 @@
 
 </head>
 <body>
-<img class="fixedBkgd" src="../summer/img/starry/starry-night-tribute.jpg" alt="" />
 
-<div class="container">
+<!-- centered text -->
+<div class="herocenter" style="position: absolute; z-index:2; top:25%">
+    <div>
+        <!--
+        <img src="img/logo/projectmuse-text.png" style="width:100%;max-width:250px; margin-left:20px" />
+        -->
+        <div class="mainTitle">
+        the artisan
+        </div>
+    </div>
+
+    <div class="fade-in text-flowX" style="position:fixed; left:0px; right:0px; 
+    text-align:center; margin-top:60px; color:#fff; font-size:24px">
+        summer breeze
+
+        
+        <div id="play-button" style="font-size: 48px; margin-top:50px; margin-left:2px">
+        <a href="#location">▶️</a>
+        </div>
+      
+    </div>
+</div>
+<!-- /centered text -->
+
+
+<img class="fixedBkgdX" src="../summer/img/starry/starry-night-tribute.jpg" alt="" />
+
+<div id="location" class="container">
 <div class="content">
 
 <!--
@@ -70,10 +113,12 @@
 Breeze Seals &amp; Crofts 1972</a></p>
 -->
 
-<a href="../" class="returnhome">Island Studio</a>
+<a href="../" class="returnhome">Audioscape</a>
 <h1>The Artisan</h1>
 
+<!--
 <h3>Etch a memory, on anything</h3>
+-->
 
 <p>Alex worked at a tool bench in a dimly lit workshop, a tiny pinpoint of light shone on the metalwork in his hands. His tools brushed and scraped against the uneven surface, flecking away dirt and sand to reveal grooves in the shimmering metal plate.</p>
 
@@ -147,7 +192,7 @@ stack of photos bound in a tattered piece of cloth.</p>
 
 
 
-<p>Outside, her brother is droping smooth stones into
+<p>Outside, her brother is dropping smooth stones into
 a well. She stands at his shoulder, listening to the sound reverberated as the ripples overlapping in the light of the moon.
 
 <!--
@@ -155,10 +200,8 @@ a well. She stands at his shoulder, listening to the sound reverberated as the r
 life.&#8221;
 -->
 </p>
-<p><a href="../gathering-cats/">Gathering Cats</a></p>
-<ul class="footer">
-  <li><a href="/audioscape/">&copy; 2020 Island Studio</a></li>
-</ul>
+<p><a href="../gathering-cats/border-crossing/">Border Crossing</a></p>
+<a href="/audioscape/">&copy; 2021 Audioscape</a><br><br>
 </div>
 </div>
 

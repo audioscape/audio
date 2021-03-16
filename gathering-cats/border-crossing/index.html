@@ -1,12 +1,22 @@
 <!DOCTYPE>
 <html>
 <head>
-	<title>Island Studio - Gathering Cats</title>
+	<title>Audioscape - Gathering Cats</title>
   <meta charset="utf-8">
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/common/common.js"></script>
+  <script type="text/javascript" src="../../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/common/common.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../css/all.css">
+  <link rel="stylesheet" type="text/css" href="../../css/all.css">
+
+<meta name="robots" content="noindex,nofollow" />
+
+<link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/base.css" />
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/d3.v5.min.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/localsite.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/showdown.min.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/navigation.js"></script>
+
 
     <!-- menu load -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
@@ -25,6 +35,15 @@
       });
       });
   </script>
+  <script>
+    param.titleArray = ["audio","scape"]
+    param.headerLogo = "🎧 "; // headphones
+    param.startTitle = "AudioScape"
+    param.headerLogoX = "<img src='img/logo/[].png' style='width:28px'>";
+    param.headerFileX = "../../header.html"
+    param.footer = "../../footer.html"
+    $(window).scroll(function(){$(".herocenter").css("opacity", 1 - $(window).scrollTop() / 200);});
+  </script>
   <style type='text/css'>
       #menuHolder {display:none;}
       .container {
@@ -37,15 +56,38 @@
 </head>
 <body>
 
-<img class="fixedBkgd" src="../summer/img/pickup-crop.jpg" style="max-width:800px" alt="" />
+<!-- centered text -->
+<div class="herocenter" style="position: absolute; z-index:2; top:25%">
+    <div>
+        <!--
+        <img src="img/logo/projectmuse-text.png" style="width:100%;max-width:250px; margin-left:20px" />
+        -->
+        <div class="mainTitle">
+        gathering cats
+        </div>
+    </div>
+
+    <div class="fade-in text-flowX" style="position:fixed; left:0px; right:0px; 
+    text-align:center; margin-top:60px; color:#fff; font-size:24px">
+        border crossing
+
+        
+        <div id="play-button" style="font-size: 48px; margin-top:50px; margin-left:2px">
+        <a href="#location">▶️</a>
+        </div>
+    </div>
+</div>
+<!-- /centered text -->
+
+<img class="fixedBkgdX" src="../../summer/img/pickup-crop.jpg" style="opacity:0.6;width:100%;max-width:2000px" alt="" />
 
 <div id="menuHolder" class="menuHolderShort"></div>
-<div class="container">
-<div class="content">
+<div class="containerXXX">
+<div id="location" class="content">
 
 
-<a href="../" class="returnhome">Island Studio</a>
-<h1>Gathering Cats</h1><!-- Acts of Nature -->
+<a href="../../" class="returnhome">Audioscape</a>
+<h1>Border Crossing</h1><!-- Acts of Nature -->
 
 <p>Michael crouched close to the wall of a old gas station and pressed the pay-phone to his ear a few miles from the Lebanese border.  His two children were curled up comfortably in bed a thousand miles away, listening intently to his every word. He picked up on the story he had been weaving when they were last together.</p>
 
@@ -152,14 +194,14 @@ hopefully lead him to one the world's foremost mathematicians, Oseph Easthay. A 
 -->
 
 
-<p><a href="../cat-star/">Winter on an Island</a></p>
+<p style="display:none;" class="local"><a href="../../cat-star/">Winter on an Island</a></p>
 
-<p style="display:none;" class="local"><a href="../spring/finibus-tour/">Finibus Tour - How Michael met Mitch</a></p>
+<p style="display:none;" class="local"><a href="../../spring/finibus-tour/">Finibus Tour - How Michael met Mitch</a></p>
 
-<p style="display:none;" class="local"><a href="../winter/challenge/">The Cast - Winter Challenge - Michael tussles with David</a></p>
+<p style="display:none;" class="local"><a href="../../winter/challenge/">The Cast - Winter Challenge - Michael tussles with David</a></p>
 
 <ul class="footer">
-  <li><a href="../">&copy; 2020 Island Studio</a></li>
+  <li><a href="../../">&copy; 2021 Audioscape</a></li>
 </ul>
 
 </div>

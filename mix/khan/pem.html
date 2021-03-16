@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <script src="processing.js"></script>
+
+<title>Omega Island - PEM</title>
+
+  <!-- menu load -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript src="/mix/js/jquery.min.js" type="text/javascript"%3E%3C/script%3E'))</script>
+  <script type="text/javascript">
+    function loadjscssfile(filename){
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+       if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+    }
+      $(document).ready(function(){
+        $("#menuHolder").load( "/mix/menu/menu.html", function( response, status, xhr ) {
+         
+      });
+      });
+  </script>
+  <style type='text/css'>
+      #menuHolder {display:none;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="/mix/css/all.css">
+  <!-- /menu load -->
+
+<link rel="stylesheet" type="text/css" href="css/game.css">
+
+	<head>
+    <body>
+      <div id="menuHolder"></div>
+      <div style="overflow:auto">
+      	<h2 style="margin:30px 0 25px 20px">&nbsp; OmegaIsland - Clean Energy Quest</h2>
+      	<img src="img/bkgd.jpg" style="position:fixed;z-index:-1;width:100%" alt="" />
+
+      	<img src="img/omega-198.png" style="position:absolute;right:30px;top:40px" />
+      	<div style="text-align:center;padding-top:10%">
+          <canvas width="400" height="400" data-processing-sources="pem-code.js"></canvas>
+      	</div>
+      </div>
+    </body>
+</html>

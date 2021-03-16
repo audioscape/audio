@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+ <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Omega Mix</title>
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" href="foundation/stylesheets/foundation.css">
+  <link rel="stylesheet" href="foundation/stylesheets/app.css">
+
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+  <![endif]-->
+
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+    <style type="text/css">
+      img {border: 0;}
+      a img {border: none;}
+
+    	#sitebar {
+    		position:fixed;
+    		padding:0 5px 0 20px;
+    		background-color:#222;
+    		color:#fff;
+    		width:100%;
+        height: 32px;
+    		z-index:2000;
+        border-bottom:1px solid #ccc;
+    	}
+      #background {
+        position:fixed; 
+        height:800px; 
+        width:100%;
+        background-image:url('img/bkgd/fiberverse.jpg');
+      }
+    	.menulist {
+    		border-left: 6px solid #000;
+    		/* background-image:url('img/home/dots/black30.png'); */
+    		padding:2px 20px 0px 20px;
+    		margin:0 0 10px 0;
+    		display: inline-block;
+        min-width: 300px;
+    	}
+    	.menulist h4 {
+    		font-size: 18pt;
+    		margin-bottom: 0px;
+    	}
+      .menulist:hover {
+        background-image:url('img/dots/black75.png');
+        cursor: pointer;
+        border-left-color: #aac;
+      }
+    	#footer {
+    		position: fixed;
+    		bottom: 0;
+    		min-height: 30px;
+    		pointer-events:none;
+
+        z-index:0; width:100%; margin-left:20px; padding-right:0px; color:#ccc; 
+        background-image:url('img/home/dots/333-80.png')
+    	}
+    	span.gc-cs-link {
+    		color: #ccc;
+    		text-decoration: none;
+    	}
+      div.sidepanel {
+        border-bottom: solid 1px #e6e6e6;
+        margin: 0;
+        padding: 20px;
+      }
+
+      
+
+    	@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+  		  #sample {
+  		    display: none;
+  		  }
+  		}
+  		@media screen and (max-width: 519px){
+  		  #scaleMe {
+  		    display: none;
+  		  }
+  		}
+    </style>
+
+<style type="text/css" media="screen">
+  #slideout {
+    /*
+    position: fixed;
+    top: 40px;
+
+    right: 0;
+    */
+    float:right;
+    width: 400px;
+    padding: 8px 0;
+    color:#ddd;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+    z-index:10000;
+  }
+  @media (min-width: 650px) {
+    #slideout:hover {
+      width:600px;
+      max-width:600px;
+    }
+  }
+  @media (max-width: 950px) {
+    #footer {
+      position:relative;
+      padding-top:1px;
+      height:40px;
+    }
+  }
+</style>
+
+<meta name="robots" content="noindex,nofollow" />
+</head>
+
+<body style="background-color:#333">
+
+<div style="z-index:99999;position:fixed;bottom:0;left:20px"><h5><a href="/mix/game" style="color:#aaa;">In the beginning...</a> &nbsp;</h2></div>
+
+<div style="z-index:99999;position:fixed;bottom:0;right:0">
+<h5><a style="color:#fff;" href="/mix/spaceshooter/">Space Shooters</a><br>
+<a style="color:#fff;" href="/mix/khan/pem.html">The Game (alpha)</a> &nbsp;</h2>
+</div>
+
+  <div id="sitebar">
+  	<a href="#" data-reveal-id="myModal"><img style="float:right; height:30px; margin-right:2px" src="img/icons/gear.png" alt="settings" title="settings" /></a>
+  </div>
+
+  <div id="background">
+    OmegaTrek
+  </div>
+
+<div style="height:31px">&nbsp;</div>
+
+<div id="myModal" class="reveal-modal">
+  <h4>eSettings</h4>
+  <p class="lead">What type of story are you?</p>
+  <p></p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div style="z-index:1; position:relative;">
+      <!-- Grid -->
+      <div class="row" style="z-index:0;">
+        <div class="seven columns" style="color:#fff;border-top:1px solid #aaa; margin-top:80px">
+
+          <div class="menulist" onclick="document.location='/mix/island'">
+          	<h4>Floating Island</h4>
+          	<p>A place we'll call home, <span style="white-space:nowrap">or float-opolis.</span></p>
+          </div>
+          <div class="menulist" onclick="document.location='/mix/recycler'">
+          	<h4>The Recycler</h4>
+          	<p>Melts trash with ease.</p>
+		      </div>
+          <div class="menulist" onclick="document.location='/mix/vitamin'">
+            <h4>Vitamin Ω</h4>
+            <p>More than just an upside down U.</p>
+          </div>
+          <div class="menulist" onclick="document.location='/mix/location'">
+            <h4>Harvest the Vortex</h4>
+            <p>One man's trash, is another's energy.</p>
+          </div>
+          
+          <br><br>
+
+          When Heathrow died, he bestowed his fortune to create the Lancroft Foundation, 
+          a secret fund dedicated to incentivizing kids using video game modules, with scoring of real-world transaction based on 10 impact indicators:<br><br>
+
+          1. Value-Added (new wealth creation exceeding initial tax)<br>
+          2. Quality Jobs<br>
+          3. Clean Air<br>
+          4. Clean Water<br>
+          5. Clean Energy<br>
+          6. Local Suppliers<br>
+          7. Green Materials<br>
+          8. Inclusive Design<br>
+          9. Improves Health<br>
+          10. Creates Beauty<br>
+          <br>
+
+
+          <script src="khan/processing.js"></script>
+          <canvas width="400" height="400" data-processing-sources="khan/code.js" style="float:left"></canvas>
+
+        </div>
+        
+        <div id="slideout">
+          
+          <!-- class="five columns"  float:right; 
+          position:relative; min-height:400px; max-height:690px; min-width:400px; 
+
+          Setting a height is required to invoke scrolling when within a fixed div.
+          -->
+          <div style="overflow-y: scroll; color:#fff; background-image:url('img/dots/333-80.png')">
+            <div class="sidepanel">
+            	<h4>let's get digital</h4>
+              <p>eBooks generated more than $2 billion as fictions outpaced hardcovers. 
+                Over $11 billion in annual print publishing revenue remains up-for-grabs.
+                <!--
+              <a href="http://www.reuters.com/article/2012/07/18/books-ebooks-idUSL4E8II5LB20120718">[Reuters]</a>
+            -->
+              </p>
+              
+            </div>
+            
+
+            <div class="sidepanel" style="border:0px" id="scaleMe">
+            	<p>
+            	Our website is designed for tablets, mobile devices and desktop computers.  Scale this window smaller to see the content flow!
+            	</p>
+            </div>
+
+            
+
+          </div>
+        </div>
+      </div>
+      
+      <!-- Grid End -->
+</div>
+
+
+
+
+<div id="footer">            
+  
+</div>
+
+  <!-- Included JS Files -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript src="/mix/js/jquery.min.js" type="text/javascript"%3E%3C/script%3E'))</script>
+  <script src="foundation/javascripts/jquery.reveal.js"></script>
+
+</body>
+</html>

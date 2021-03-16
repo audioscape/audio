@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html><head>
+  <title>Floating Island</title>
+
+  <!-- menu load -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript src="/mix/js/jquery.min.js" type="text/javascript"%3E%3C/script%3E'))</script>
+  <script type="text/javascript">
+    function loadjscssfile(filename){
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+       if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+    }
+      $(document).ready(function(){
+        $("#menuHolder").load( "/mix/menu/menu.html", function( response, status, xhr ) {
+        
+      });
+      });
+  </script>
+  <style type='text/css'>
+      #menuHolder {display:none;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="/mix/css/all.css">
+  <!-- /menu load -->
+ 
+
+	<meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+<div id="menuHolder"></div>
+
+<div style="margin-left:21px; padding-right:210px;position:relative;width:100%">
+  <iframe width="98%" height="800" style="position:fixed;z-index:-1" src="//www.youtube.com/embed/PaTvuudh0l4?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class="container">
+<div class="content">
+    <h1>Floating Island</h1>
+
+    <p></p>
+
+    <iframe src="https://embed.spotify.com/?uri=spotify:track:7rTs2pNrBzOExmZKSByHbE" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+
+      
+      <iframe src="https://embed.spotify.com/?uri=spotify:track:4BgpsacEfjGt6FZdys702V" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+
+  </div>
+  <!--footer-->
+<script src="/mix/js/mix.js" type="text/javascript"></script>
+<ul class="footer">
+    <li><a href="http://omegatrek.com">© 2014 Omega Publishing</a></li>
+  </ul>
+</div>
+
+</body></html>

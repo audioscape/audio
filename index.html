@@ -1,141 +1,152 @@
-
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en-us">
 <head>
 <meta charset="utf-8">
-<title>Audioscape</title>
 <meta http-equiv="Content-Type" content="text/html;">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
-<link type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
+<title>AudioScape - Welcome to your narrative</title>
 <link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/base.css" />
 <script type="text/javascript" src="https://neighborhood.org/localsite/js/d3.v5.min.js"></script>
-<script type="text/javascript" src="https://neighborhood.org/localsite/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/jquery/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="https://neighborhood.org/localsite/js/localsite.js"></script>
 <script type="text/javascript" src="https://neighborhood.org/localsite/js/showdown.min.js"></script>
 <script type="text/javascript" src="https://neighborhood.org/localsite/js/navigation.js"></script>
-
+<link type="text/css" rel="stylesheet" href="css/all.css">
 <script>
-    param.titleArray = ["audio","scape"]
-    param.startTitle = "Audioscape"
-    //param.headerLogo = "🎧 "; // headphones
-    param.headerFileX = "https://neighborhood.org/localsite/header.html"
-    param.footer = "https://neighborhood.org/localsite/footer.html"
+	param.titleArray = ["audio","scape"]
+	param.footer = "footer.html"
+    param.headerLogo = "🎧 "; // headphones
+
+    $(window).scroll(function(){$(".herocenter").css("opacity", 1 - $(window).scrollTop() / 200);});
 </script>
 
 <style>
-/*
-.headerbar {
-    background-color: rgba(33, 33, 33, 0.9);
-    background-color: rgba(256, 256, 256, 0.95);
-    border-bottom: 0px solid #eee;
-}
-.upperIcons > div {
-    border: 0px solid #333;
-}
-#headeroffsetX {
-    displayX: none;
-}
-*/
-
-#audioscape-output-control > div {
-    
-}
-#audioscape-output-control > div:nth-child(2) {
-    margin-top:-2px;
-    margin-left:10px
-}
-.material-icons {
-    cursor: pointer;
-}
-.material-icons:hover {
-    color: #555;
-}
+    #logoholder { font-size: 32px; }
+    #headerLogo { margin-right: 8px; }
+    .showMenu { display: none; }
+    /*
+    #header {display: none !important;}
+    .headerbarheight {display: none !important;}
+    .headerbar {display: none !important;}
+    .headerOffset {display: none !important;}
+    .headerOffsetOne {display: none !important;}
+    #footerX {display: none !important;}
+    .headerOffset2 {display: none !important;}
+    #headerFixed {display: none !important;}
+    */
 
 </style>
-
 </head>
 
 <body>
-<div id="header" style="display:none"></div>
-<img src="img/datascape.jpg" style="width:100%"><br>
-
-<div class="content contentpadding">
-
-<div style="float:right">
-    <a href="https://github.com/audioscape/audio"><img src="img/logo/github.png" style="height:32px; margin: 8px 8px 2px 1.5px"></a>
-</div>
-<h1>Text-to-Speech</h1>
-
-
-<!-- CONTROLS -->
-    <div class="audioControls">
-
-        <div style="float:right">
-
+<div style="background:#fff; min-height:150px; line-height:0px; width:100%; position: relative">
+    
+    <!-- logo centered -->
+    <div class="herocenter" style="position: absolute; z-index:2; top:25%">
+        <div>
             <!--
-            <div class='fbDetails button button-grey button-sm' style='margin: 10px 4px 2px 0px'>
-                Expand</div>
-            <div class='fbShrink button button-grey button-sm' style='display: none; margin: 10px 4px 2px 0px'>
-                Shrink</div>
+            <img src="img/logo/projectmuse-text.png" style="width:100%;max-width:250px; margin-left:20px" />
             -->
-
-
-            <!--
-            <div class='fbSrtByGroup button button-grey button-sm' style='margin: 10px 10px 0px 0px'>
-                By Group</div>
-            <div class='fbSrtByDate button button-grey button-sm' style='display: none; margin: 10px 10px 0px 0px'>
-                By Date</div>
-            -->
-
+            <div class="mainTitle">
+            audioscape
+            </div>
         </div>
+
+        <div class="fade-in text-flowX" style="position:fixed; left:-28px; right:28px; 
+        text-align:center; margin-top:80px; color:#fff; font-size:24px">
+            welcome to <span style="font-weight:800; opacity:1">your</span> narrative.
+
+            
+            <div id="play-button" style="font-size: 48px; margin-top:50px; margin-left:2px">
+            <a href="#location">▶️</a>
+            </div>
+        </div>
+
+
     </div>
 
-    <div style="float:right">
-        <div class="si-wrapper" style="float:left;">
-            <button class="si-btn" style="display:none">
-                speech input
-                <i class="material-icons" style="font-size:30px !important;">&#xE029;</i>
-                <span class="si-holder"></span>
-            </button>
-            <input class="aiName textInput si-input" type="text" value="Assistant Name" maxlength="300" placeholder="Assistant Name" />
-
-        </div>
-    </div>
-
-    <h3 style="margin:0px">
-
-    <div style="font-family: calibri, helvetica, arial, sans-serif; font-size: 28.5px !important; float: left;">
-
-        <script type="text/javascript" src="js/audio.js"></script>
-        <div id="audioscape-output-control"></div>
         
-    </div>
+    
 
     <!--
-    To listen, <a class="listenButton">click play</a>
+    
     -->
-    </h3><br>
-<!-- /CONTROLS -->
 
-<div class="audioscape">
-<p>
-    The Neutrino Detection Project, led by Dr. Peter Gorham, a physicist from the University of Hawaii, was the first scientific group to detect the highest energy neutrinos in the universe. He excitedly gushes (though still struggles finding the words to describe something he's only beginning to understand): "The neutrino is the most ridiculous particle you can imagine. They exist, but we can't get our hands on them, because they seem to just exist in another place. And, as a physicist, even though I understand it mathematically, and I understand it intellectually, it still hits me in the gut that there is something here, surrounding me, almost like some kind of spirit or God, that I can't touch, but I can measure it. I can make a measurement. It's like measuring the spirit world, or something like that..."
-    <a href="https://island.studio/">more</a>
-    <br><br>
+    <div class="lazy bgimg bgimg-notfixed" data-src="img/bkgd/water-night.jpg" style="opacity:.85; position:relative;">
+        <img src="img/bkgd/water-night.jpg" style="opacity:0; width:100%">
 
-    From Encounters at the End of the World
-</p>
+        <a name="location" style="position:absolute; left:0px; bottom:800px"></a>
+    </div>
+
+    <div class="storybox">
+        <div style="displayX:none">
+            5,000 nautical miles north, on the leeward side of Alexandria, you'll find us on the basalt shoreline, network glistening, the sound of twilight surf. &nbsp;Near the once frozen arctic, we generate your most time sensitive world renderings. Remote, secluded, well connected and far removed from the confines of our lan-locked days. 
+            <!-- Lord Exodus 
+            AI Mentor Network for collaborative design.
+            -->
+        </div>
+
+    </div>
+
 </div>
 
-<br><br><br>
 
-<!--
-https://blog.addpipe.com/recording-audio-in-the-browser-using-pure-html5-and-minimal-javascript/
+<div id="soundControl">
+  <!--
+  SpaceX Music
+  https://soundcloud.com/juandedeboca
+  -->
+  <!--
+  <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/40641798&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 -->
+</div>
+
+
+<div>
+    <div style="position:absolute; top:0px; right:0px; margin:50px 50px 50px 50px; displayX: none">
+      <!--
+      SpaceX Music
+      https://soundcloud.com/juandedeboca
+      
+      
+      -->
+    </div>
+
+    <div id="footer"></div>
+
+    <a name="home"></a>
+    <div class="lazy bgimg bgimg-notfixed" data-src="img/bkgd/aurora-cabin-hires.jpg" style="position:relative; top:auto; bottom:0px; opacity:.85; line-height: 0px">
+        <img src="img/bkgd/aurora-cabin-hires.jpg" style="opacity:0; width:100%; bottom:0px;">
+
+        <div style="position:absolute; top:50%; left:80px; text-align: center; margin: 0 auto">
+
+            <div class="mainTitle">
+                w e l c o m e
+            </div>
+
+            <div style="clear:both"></div>
+            <br><br>
+            <!--
+        
+            Krishna Blue https://youtu.be/MTn-PirxH1s?t=261 
+            -->
+            <div style="display:none; margin-top:100px">
+                When the house arrives, the light is on, which is a good sign.
+            </div>
+        </div>
+    </div>
 
 </div>
+
+
+
+
+<script>
+    //loadMarkdown("README.md", "readmeDiv", "_parent");
+    //loadMarkdown("features.md", "featuresDiv", "_parent");
+</script>
 
 </body>
+</html>

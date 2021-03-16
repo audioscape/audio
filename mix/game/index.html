@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Game: Harvest the Vortex</title>
+
+  <!-- menu load -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript src="/mix/js/jquery.min.js" type="text/javascript"%3E%3C/script%3E'))</script>
+  <script type="text/javascript">
+    function loadjscssfile(filename){
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+       if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+    }
+      $(document).ready(function(){
+        $("#menuHolder").load( "/mix/menu/menu.html", function( response, status, xhr ) {
+        
+      });
+      });
+  </script>
+  <style type='text/css'>
+      #menuHolder {display:none;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="/mix/css/all.css">
+  <!-- /menu load -->
+ 
+	<meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+
+<div id="menuHolder"></div>
+<img class="fixedBkgd" src="img/aerosols-square.jpg" alt="Salt" />
+
+<div class="container">
+
+  <div onclick="$('.container').hide();return false;" style="float:right; margin-top:5px; margin-right:5px; border:1px solid #fff;height:12px;width:12px;font-size:10px; line-height:12px;text-align:center; cursor: pointer;">X</div>
+
+<div class="content">
+    
+
+    <h1>Welcome to <span style="white-space:nowrap">The Vortex</span></h1>
+
+    <p style="line-height:14pt"><b>Our story begins...</b></p>
+
+    <p>I first met Joe in 2016 gaming the Pacific Northsouth current, and Kol shortly thereafter. Kol had became a serious gamer fast, racking up a significant fleet of Oceanic MechBots by the age of 16. Joe was a location specialist, the kind who could turn a winter storm into plasma gold in a few short, intense hours.  And me, they called me the runner, the kid with the fastest code in a vortex of trash the size of Texas. I wasn't always the first there, but when my bots streamed in, the ocean was transformed into a pulse arena fueled by recycling algorithms that put runners twice my age to shame.</p>
+
+    <p>Basically we were all guns for hire.</p>
+
+    <p>"What do you mean by guns?" my son asked from my side.</p>
+
+    <p>"That's a term they used back in the days of the Wild West. A gun for hire was a cowboy working for the highest bidder in the lawless west, rounding up cattle and protecting land claims for the early settlers."</p>
+
+    <p>Today's wild west was the Pacific Ocean itself, and the claims were rich deposits of floating trash and the clinging sealife forms that made harvesting energy a complex and lucrative process. Capture, filtrate, defend, repair were the mantra of our vagabond mech crews.</p>
+
+    <p>At the heart of it all were the PEMs, Plasma Enhanced Melters, three-story recycling towers afloat on a growing series of Islands that ringed the vortex. Large companies controlled most of the harvesting flow, but increasingly small outfits like ours were giving them a run for their money.  Here in the center of the expansive Pacific, it was largely impossible to enforce rights of ownership. And when the big storms blew through, the opportunities to strike it rich were greater than the gold rushes of the prior centuries.</p>
+
+    <p>That night the combination of storm winds from the north and a strong El Nino current from the south were bringing huge upswells of plastics and carbon-rich debris to the surface that had been amassing below the waves for years. Suspended in biomass and kelp beds that extended several kilometers toward the ocean floor, it was a rich hunting ground for anyone who could arrive quick and act fast.</p>
+
+    <p>For decades these deposits grew below the water level as the demand for land in developing countries pushed settlements seaward.</p>
+
+    <p><img usemap="#pemdiagram" src="../recycler/img/plasma-melter-diagram.jpg"></p>
+
+    <!--
+    <p><a href="http://www.inentec.com/pemtm-technology/process-details.html">View PEM Flow</a></p>
+    -->
+
+    <iframe src="https://embed.spotify.com/?uri=spotify:track:3RrJTOClOgMAc9FQ7QDwv7" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+    <div style="clear:both"></div>
+    <!-- width 560 -->
+    <iframe width="300" height="315" src="//www.youtube.com/embed/mhaQj2SHF3Q?rel=0" frameborder="0" allowfullscreen></iframe>
+      
+      <p>Sometimes they called us the Pem Brothers - the three muskateers of plasma energy generation.</p>
+
+      <!--
+      This site is dedicated to Allison, whose heart was broken, but not beyond repair, 
+      by the legions of trash that laid across the shore on our explorations of the Virgin Islands.-->
+
+       <a href="/mix/khan/pem.html">The Game (alpha)...</a>
+
+  </div>
+  <!--footer-->
+<script src="/mix/js/mix.js" type="text/javascript"></script>
+<ul class="footer">
+    <li><a href="http://omegatrek.com">© 2014 Omega Publishing</a></li>
+  </ul>
+</div>
+
+</body></html>

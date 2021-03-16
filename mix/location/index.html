@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html><head>
+  <title>Harvest the Vortex</title>
+
+  <!-- menu load -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript src="/mix/js/jquery.min.js" type="text/javascript"%3E%3C/script%3E'))</script>
+  <script type="text/javascript">
+    function loadjscssfile(filename){
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+       if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
+    }
+      $(document).ready(function(){
+        $("#menuHolder").load( "../menu/menu.html", function( response, status, xhr ) {
+         
+      });
+      });
+  </script>
+  <style type='text/css'>
+      #menuHolder {display:none;}
+  </style>
+  <!-- /menu load -->
+
+	<meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+  <img src="img/isola.jpg" style="position:fixed;z-index:-1;width:100%" alt="" />
+<div id="menuHolder"></div>
+<div class="container">
+<div class="content">
+    <h1>Harvest the Vortex</h1>
+
+    <p style="background:#252A61;color:#fff">#stopthevortex</p> 
+
+<iframe src="https://embed.spotify.com/?uri=spotify:track:1hKdDCpiI9mqz1jVHRKG0E" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/XKXR2Goe_IA" frameborder="0" allowfullscreen></iframe>
+      
+<!-- notes
+  http://www.salon.com/2013/11/21/plastic_pollution_may_be_transporting_toxic_chemicals_into_our_seafood/
+-->
+
+  </div>
+  <!--footer-->
+<script src="/mix/js/mix.js" type="text/javascript"></script>
+<ul class="footer">
+    <li><a href="http://omegatrek.com">© 2014 Omega Publishing</a></li>
+  </ul>
+</div>
+
+</body></html>

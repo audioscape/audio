@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html;">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+<title>MemoryStone - Edge of the World</title>
+
+<!--
+  As you get closer to death, closer to the dream surface, ideas and symbols begin to blur. Memories fall into compartments, vases of fine dust on a shelf, worth pouring through, but seemly shallow in their essense. Each offers up a part of the whole, but indendent of charge the dust can hold you no more.
+-->
+<script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+
+<link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/base.css" />
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/d3.v5.min.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/jquery/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/localsite.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/showdown.min.js"></script>
+<script type="text/javascript" src="https://neighborhood.org/localsite/js/navigation.js"></script>
+
+<!-- video auto-play in Chrome requires starting with plyr audio off. -->
+<link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/bootstrap.darkly.min.css">
+<link rel="stylesheet" type="text/css" href="./css/all.css" />
+
+</head>
+<body style="margin:0px; background:#000">
+
+<div class="plyr__video-embed" id="player">
+    <div id="vidCover">
+    </div>
+    <div class="floatMessage">
+      Turn on audio below.
+    </div>
+    <iframe
+        src="https://www.youtube.com/watch?v=t57DPnH06V0&origin=https://plyr.io&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1"
+        allowfullscreen
+        allowtransparency
+        allow="autoplay"
+    ></iframe>
+</div>
+
+<script>
+    param.titleArray = ["audio","scape"]
+    param.headerLogo = "🎧 "; // headphones
+    param.startTitle = "AudioScape"
+    param.footer = "footer.html"
+</script>
+<style>
+  #logoholder { font-size: 32px; }
+  #headerLogo { margin-right: 8px; }
+  .showMenu { 
+    display:none;
+  }
+  #footer {
+    display:none;
+  }
+  #headeroffset {
+    display:none;
+  }
+  #vidCover {
+    position: absolute;
+    z-index: 100;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:20px;
+  }
+  .plyr__volume {
+    displayX: none;
+  }
+
+
+   /* + PLYR HIDE RELATED ON PAUSE - BLURRED BACKGROUND - HIDES FILMSTRIP */
+   /*
+  .plyr--paused .plyr__poster {
+    z-index: 2;
+    filter: blur(1rem);
+    position: absolute;
+    opacity: 1;
+    top: 65px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  */
+
+.storybox {
+  position: absolute;
+  left: 0px;
+  bottom: 200px;
+  width: 420px;
+  background-color: rgba(35, 35, 35, .5);
+  padding: 50px 40px 40px 80px;
+  color:#fff;
+  line-height: 2.6em;
+  font-size: 16px;
+}
+@media (max-width: 800px) {
+  .storybox {
+      clear:both;
+      padding: 30px;
+  }
+}
+
+.floatMessage {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(35, 35, 35, 1);
+  padding: 30px 40px 60px 40px;
+  color:#fff;
+  font-size: 16px;
+  z-index: 2;
+}
+
+.hideAdvanced {
+  position:absolute;
+  top:0px;
+  right:20px;
+  cursor:pointer;
+  opacity:0.5;
+}
+#IceCube_standalone {
+
+}
+#IceCube_standalone {
+  width:200px;
+  opacity:.8
+}
+#IceCube_standalone:hover {
+  opacity: 1;
+}
+/*
+.plyr__video-embed iframe {
+  pointer-events: all !important;
+}
+*/
+</style>
+
+ <script>
+  var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if (navigator.brave) {
+    isChrome = false;
+  }
+  const player = new Plyr('#player', {autopause:'true',color:'adef00'});
+  window.player = player;
+
+  setTimeout(function(){  
+    //player.currentTime = 50; // Seeks to 10 seconds
+    //player.volume = 0.5;
+
+    if (isChrome) {
+      player.muted = true; // On Chrome, video will not start automatically unless muted.
+      $('.floatMessage').show();
+    }
+    //player.color = 'adef00';
+
+    player.play();
+  }, 2000);
+
+  player.on('pause', event => {
+    //const instance = event.detail.plyr;
+    $("#headerbar").fadeIn();
+    $(".storybox").fadeOut();
+  });
+
+  player.on('play', event => {
+    // Delayed to allow time for video title to disappear.
+    setTimeout(function(){
+      $("#headerbar").fadeOut();
+    }, 4000);
+    setTimeout(function(){
+      $(".storybox").fadeIn();
+    }, 33000);
+
+    $("#vidCover").show();
+  });
+
+  player.on('volumechange', event => {
+    $('.floatMessage').hide();
+  });
+
+  // Allow click through. Need to block rollover.
+  
+  let plyrPosterExists = document.getElementsByClassName('plyr__poster')
+  if (plyrPosterExists.length > 0) plyrPosterExists[0].style.display = 'none'
+
+
+$(document).ready(function(){
+
+    /*
+    $(".hideAdvanced").click(function(event) {
+
+      //$(this).parents('div').fadeOut();
+      $(".storybox").fadeOut();
+      //alert("2")
+    });
+    */
+});
+
+// Works on dynamic elements added to the DOM after declaring.
+$(document).on('click', '.hideAdvanced', function () {
+    $(this).parent().fadeOut();
+});
+$(document).on('click', '#vidCover', function () {
+    player.pause();
+    $("#vidCover").hide();
+});
+
+
+
+</script>
+
+
+<div class="storybox" style="display:none">
+  <div class="hideAdvanced">✕</div>
+
+  <b>Tensor–vector–scalar gravity (TeVeS)</b> is a disputed theory of modified gravity that accounts for the flat rotation curves of galaxies. The TeVeS theory requires massive neutrinos<!--, hot dark matter to make the equations work-->.<br>
+  I&nbsp;still&nbsp;believe. 
+
+</div>
+
+
+
+<br>
+
+
+<div class="container">
+<div class="content">
+
+<div style="float:right">
+  <link type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <script type="text/javascript" src="https://audioscape.github.io/audio/js/audio.js"></script>
+  <div id="audioscape-output-control"></div>
+</div>
+
+
+<!--
+<blockquote class="tiktok-embed floatRight" cite="https://www.tiktok.com/@jasonderulo/video/6826981901182471430" data-video-id="6826981901182471430" style="max-width:355px;min-width: 325px;" > 
+
+  <section> <a target="_blank" title="@jasonderulo" href="https://www.tiktok.com/@jasonderulo">@jasonderulo</a> <p>I can’t stop watching this @itsjonathansworld  @justmaiko </p> <a target="_blank" title="♬ Savage Love (Laxed - Siren Beat) - Jawsh 685 & Jason Derulo" href="https://www.tiktok.com/music/Savage-Love-Laxed-Siren-Beat-6825494114277100293">♬ Savage Love (Laxed - Siren Beat) - Jawsh 685 & Jason Derulo</a> </section> 
+
+</blockquote>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<style>
+blockquote {
+  border:none !important;
+}
+section {
+  display: none !important;
+}
+</style>
+-->
+
+<h1>Edge of the World</h1>
+
+<!--
+<h2>Expedition Journal: The Energy of Waves (Finding Neutrino)</h2>
+-->
+
+<div class="audioscape">
+<p>
+Luci and Moog gave eachother the look. "Let's amp this up!" Moog yelled as dove head first and landing sliding acrosss the packed snow, snagging the puck and swinging hard to direct it up and over the kids sticks. They weren't going to let another easy score get by them. Luci, flicked her sticka and sent it flying down the frozen court with a swooping gesture toward the opposite goal. Blades hummed with bursts of acceleration as Jill and her other teammates applied a series of air slams, jumping off Rick's back to intercept and move it back down the court to score and tie the game. The rules were no contact with the flying puck. Its sensors responded to the gestures and intent of each player. Mesh over the blades protected hands from the rotors during occasional finger glances, which also incurred a one-point penalty. 
+</p>
+
+<p>
+The puck's response time was fast. In fact, it was almost impossible to actually hit if you tried because it anticipated your every movement using a network connected to your EEG rig and the rigs of everyone around you. Using a combination of your arm and your EEG headset input, you could swing your arm one way, while simultaneously "telling" the puck to fly in the other direction using your eye movement to outmaneuver another player. When two player intents collided, the puck often shot straight up like a magnet flipping out of a field.
+</p>
+
+<p>
+Moog moved swiftly and looked especially tall and slender in his red, yellow and green arctic snow suit. Years of playing hackysack on Caribbean beaches made him quick and nibble, even for his late 40s. Surrounded with a circle of five kids, dreadlocks tied in the back, arms folded across his chest, he stepped swiftly through the flurry of feet to recover control of the puck by raising his hands with a sudden burst on either side of it. It came to a halt within the football goal of his extended arms. Moog gave it a slight mental tap forward to Luci who responded with a full body air punch which sent it cantering toward Jen, wide open across the ice field near the entrance road to IceCube. She gave a final small mental nudge and a flick of the wrist to win the game, and we all rushed for the steaming hot coco and donuts Reg had brought to the side of the field - the winning team got first dibs on the jelly filling, so I made sure to grab a blueberry one for Alison.</p>
+
+<p>The puck's multi-lens circuitry was from her snowbot navigation design, which would prove esential here in the harsh winter ahead.  Behind us on the sea-ice stood the two tallest buildings on the continent -- the IceCube Lab where scientists searched for almost undetectable subatomic particles -- neutrinos.  (Several of those hardworking scientists happened to be our parents.)
+</p>
+
+<!--
+  The best players had ali invested in Neuralink augmentation, but to be fair here the first day of Travel School, the few with lace had their implants turned off.
+-->
+
+<p>
+
+<div style="position:relative">
+  <a href="./sun/img/icecube_south_pole_detector.png"><img src="./sun/img/icecube_south_pole_detector.png" style="width:100%" alt="" /></a>
+  <div style="position:absolute; bottom:20px; right:20px"><a href="./sun/img/IceCube_standalone.jpg"><img id="IceCube_standalone" src="sun/img/IceCube_standalone.jpg"></a></div>
+</div>
+</p>
+<p><a href="./sun/img/IceCube_standalone.jpg">How tall is the IceCube array compared to the Empire State Building?</a></p>
+
+<h2>The "IceCube" Telescope</h2>
+
+<p>
+The Neutrino Detection Project, led by Jen's dad, Dr. Peter Gorham, a physicist from the University of Hawaii, was the first scientific group to detect the highest known energy neutrinos in the universe. He excitedly gushes (though still struggles finding the words to describe something he's only beginning to understand): "The neutrino is the most ridiculous particle you can imagine. They exist, but we can't get our hands on them, because they seem to just exist in another place.  And, as a physicist, even though I understand it mathematically, and I understand it intellectually, it still hits me in the gut that there is something here, surrounding me, almost like some kind of spirit or God, that I can't touch, but I can measure it. I can make a measurement. It's like measuring the spirit world, or something like that... From Encounters at the End of the World (2007)
+</p>
+
+<p><img src="winter/img/neutrino.jpg" style="float:left; margin-right:20px" />
+&#8220;Neutrinos are electrically neutral leptons, and interact very rarely
+with matter. When they do react with the molecules of water in the ice,
+they can create charged leptons (electrons, muons, or taus). These
+charged leptons can, if they are energetic enough, emit Cherenkov
+radiation. This happens when the charged particle travels through the
+ice faster than the speed of light in the ice, similar to the bow shock
+of a boat traveling faster than the waves it crosses. This light can
+then be detected by photomultiplier tubes (PMTs) within the digital
+optical modules (or DOMs) making up IceCube. Even though it is located
+in Antarctica, IceCube is more sensitive to point sources more in the
+northern hemisphere than the southern. It can observe astrophysical
+neutrino signals from any direction, but in the southern hemisphere
+these neutrinos are swamped by the downgoing cosmic-ray muon
+background.&#8221;  - <a href="http://en.wikipedia.org/wiki/IceCube_Neutrino_Observatory" target="IceCube">More</a></p>
+ 
+
+<p>Neutrinos carry away most of the gravitational energy released by the collapse of massive stars and from <a href="https://www.sciencedaily.com/releases/2020/07/200701084750.htm">supermassive black holes</a> found at the cores of active galaxies. Electric charge-free and with an extremely small mass (0.1 eV or greater, compared with about 0.5 MeV for the electron), the neutrino is considered a key element, because it can relate both with matter and dark matter - if there is such a thing.
+
+<!-- "A very interesting possibility – postulated in 1977 by Murray Gell-Mann, Pierre Ramond and Dick Slansky – is that the neutrino masses are inversely proportional to the high-energy scale at which the quark-lepton symmetry is broken."
+-->
+</p>
+
+<div style="clear:both"></div>
+<br><br>
+
+<p><a href="./sun/img/icecubeparti.jpg"><img src="./sun/img/icecubeparti.jpg" style="width:100%" alt="" /></a></p>
+
+<p><a href="./sun/img/icecube-neutrino.jpg"><img src="./sun/img/icecube-neutrino.jpg" style="width:100%" alt="" /></a><br>
+Computer data shows a neutrino impact amid IceCube's hollow columns.</p>
+ 
+<p>"In 2013, the IceCube neutrino experiment at the South Pole reported the observation of two ultra-high-energy neutrino events, which they named after Sesame Street characters <a href="./sun/img/bert-and-ernie.png">Bert and Ernie</a>. The third, they nicknamed "Big Bird".</p>
+
+<p>
+In 2018 Astronomers traced a high-energy neutrino to its cosmic source for the first time, the jets of a Blazer black hole which points in our general direction from within the Orien constellation.  Cosmic rays are emitted simultaneously, but their charged nature causes them to take a meandering&nbsp;path.
+</p>
+
+<p><a href="http://news.stanford.edu/news/2014/march/physics-cosmic-inflation-031714.html"><img src="img/antarctica/bicep-telescope.jpg" style="width:100%" alt="" /></a><br>
+The 10-meter South Pole Telescope and the BICEP (Background Imaging of Cosmic Extragalactic Polarization) Telescope against the Milky Way. BICEP2 recently detected gravitational waves in the cosmic microwave background, a discovery that supports the cosmic inflation theory of how the universe began. (Photo: Keith Vanderlinde, National Science Foundation)</p>
+
+
+<iframe width="100%" height="600" src="//www.youtube.com/embed/ZlfIVEy_YOA" frameborder="0" allowfullscreen></iframe><br>
+Great moments in science - a toast to the inflation of the universe.<br><br>
+
+
+<!--
+<h2>I'll Follow the Sun, Pole to Pole</h2>
+-->
+
+<h2>The Energy of Waves</h2>
+
+<br>
+<h3>Through our eyes the universe is perceiving itself - Alan Watts</h3>
+<br>
+
+<p>At the opposite pole, the Inuit man paddles harder and harder, left, right, left, right. 
+On the edge of air and water, his kayak glides past walls of ice and rocky 
+outcroppings. Faster he glides, with each even stroke accelerating the
+craft on the smooth surface away from the turbulent shoreline.</p>
+ 
+<p>This morning I gradually awoke, still gliding along the
+icy artic coast, the voice of an elder in my mind. 
+&#8220;When you travel the surface between elements, find the rhythm. There you will move faster than among either
+element alone.&#8221;</p>
+ 
+<p>As I paddle, near the massive outcropping, my efforts are slowed.  Buffeted by waves as they bounce off the rocks and set my boat rocking, counter to my efforts.  It is not until I adjust my strokes to use the rocking to my advantage that I can use the rhythmic waves to increase my speed.</p>
+ 
+ <p>
+ "It's similar to the waves we see on the ocean," said Unruh. "They are not affected by the intense dance of the individual atoms that make up the water on which those waves ride."
+</p>
+
+<p>
+  More: <a href="https://www.sciencedaily.com/releases/2017/05/170515111133.htm">Solving one of nature's great puzzles: What drives the accelerating expansion of the universe?</a>
+</p>
+
+
+<h2>TeVeS - I Still Believe</h2>
+<br>
+
+<p>Yesterday we found another guest to invite...<br>
+Chinese astronomer Sheng Zhao. <!-- FIND OR INVITE ANOTHER--> 
+</p>
+
+
+
+<p>Tensor-vector-scalar gravity (TeVeS) – a 'simple' formula that
+explicitly tells how gravity should behave in the transition zone
+between the solar system, where the golden laws of Newton and Einstein
+apply, and the outskirts of galaxies. 
+ 
+ It’s a MOND theory that works perfectly for most galaxies. But it has yet to explain the bullet cluster. 
+
+ MOND stands for <a href='http://www.space.com/scienceastronomy/091105-missing-matter.html'>MOdified Newtonian Dynamics</a>, discovered by the Israeli physicist Prof. Dr. Mordehai Milgrom.
+ </p>
+
+<p>&#8220;Under MOND, mass is much more effective at bending space-time than
+under General Relativity, so it takes less stuff in the universe to
+account for all the gravity we measure.  When applied to just galaxies,
+MOND can predict very well the behavior that astronomers observe. But
+when MOND is applied to larger structures like clusters of galaxies, it
+fails. To make MOND work for clusters, it must include more complicated
+concepts, such as entities called dark fields, which are different from
+dark matter, but work in a similar way to alter the amount of gravity
+present.&#8221;</p>
+ 
+<p>
+  "One primary success of TeVeS is that it provides an enhancement of gravitational lensing, which could not be achieved by other MONDian theories." - <a href="https://inspirehep.net/literature/687344">2005</a><br><br>
+
+How Would Galaxies Form in a Universe Without Dark Matter? <a href="https://scitechdaily.com/how-would-galaxies-form-in-a-universe-without-dark-matter-researchers-find-out/">Researchers Find Out in 2020</a>
+  
+</p>
+ 
+<p>
+The Bullet cluster and others exhibit that under the right conditions, gravity exhibits non-local effects. 
+One of the surviving MOND theories is MOG, a theory of gravity with non-local effects akin to quantum physics on the scale of galaxy clusters - when the relative density of surrounding matter becomes sparse and light breaks free of <a href="http://en.wikipedia.org/wiki/Shapiro_delay">shapiro time delay</a>.
+</p>
+
+<h2>Of Emergent Gravity and Eternal Inflation</h2>
+
+<p>Alison handed the paper back across the desk to Erik Verlinde. The intro read, "Gravity is not a fundamental force of nature, but an emergent phenomenon. On galactic scales matter reduces volume-scaling entropy in its environment, and manifests itself as apparent dark matter."</p>
+
+<p>According to Dr. Verlinde, there is no need to add a mysterious particle to represent dark matter in the math. In a November 2016 paper, Verlinde showed how his theory of gravity accurately predicts the velocities by which the stars rotate around the center of the Milky Way, as well as the motion of stars inside other galaxies.</p>
+
+<p>"We have evidence that this new view of gravity actually agrees with the observations," says Verlinde. "At large scales, it seems, gravity just doesn't behave the way Einstein's theory predicts."</p>
+
+<p>At first glance, Verlinde's theory presents features similar to modified theories of gravity like MOND (modified Newtonian Dynamics, Mordehai Milgrom (1983)). However, where MOND tunes the theory to match the observations, Verlinde's theory starts from first principles. "A totally different starting point," according to Verlinde.</p>
+
+<p><b>Adapting the holographic principle</b></p>
+
+<p>One of the ingredients in Verlinde's theory is an adaptation of the holographic principle, introduced by his tutor Gerard 't Hooft (Nobel Prize 1999, Utrecht University) and Leonard Susskind (Stanford University). According to the holographic principle, all the information in the entire universe can be described on a giant imaginary sphere around it. Verlinde now shows that this idea is not quite correct — part of the information in our universe is contained in space itself.</p>
+
+<p>This extra information is required to describe that other dark component of the universe: Dark energy, which is believed to be responsible for the accelerated expansion of the universe. As Verlinde showed in his 2010 work, ordinary gravity can be encoded using the information on the imaginary sphere around the universe.</p>
+
+<p>Taking into account the effects of this additional information of ordinary matter within the sphere, 
+Verlinde comes to a stunning conclusion, <i>the result of the additional information in the bulk of space is a force that nicely matches that attributed to dark matter</i>.</p>
+
+<p>Source: <a href="https://phys.org/news/2016-11-theory-gravity-dark.html">New theory of gravity might explain dark matter (2016)</a></p>
+
+<h2>Pole to Pole</h2>
+<br>
+
+<p>Back in the Inuit villiage, a group of colorfully dressed children are winding ribbons around a May pole, braiding colors to a circling rhythm.</p>
+ 
+<p>The May Day celebration has ended and the older boys have the task of removing
+the pole. The first two tug and push to no avail, stuck in the frozen
+mud.  A third, smaller boy, approaches the pole and sets his hand on it and
+gives a little push. Then another gentle push, and another, and soon the
+top of the pole is vibrating back and forth. With a slight upward push of his hand with each nudge, the bottom of the pole slowly rises out of the permafrost.</p>
+ 
+<p>Back and forth, back and forth. Pole to pole.</p>
+
+<p>Shortly before his Artic trip, Langford had dropped out of college to pursue a dream of restoring ice to polar tundra using a Peltier element that produced <a href="https://www.sciencedaily.com/releases/2019/04/190419165531.htm">ice without energy</a>.
+
+Within a year, the cooling technology we were developing took a profitable turn and became the very popular curb-side cooler business you know of today as "PopBox".  Designed so the lids were flush with ground level, the solar panel on the lid allowed the box to also heat a meal as residents returned home.
+</p>
+
+<p>Continue: <a href="./spring/finibus-tour" target="finibus">Finibus Tour</a></p>
+
+
+</div><!-- /audioscape -->
+
+<ul class="footer">
+    <li><a href="./">&copy; 2020 Island Studio</a></li>
+</ul>
+
+</div>
+</div>
+
+</body>

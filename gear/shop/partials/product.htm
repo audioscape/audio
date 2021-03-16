@@ -1,0 +1,66 @@
+﻿
+<div id="prod-top" class="prod-top-img col-md-12">
+ <div class="cart-txt-top">
+   <img ng-src="{{product.src}}" style="max-width:500px" alt="{{product.name}}"/>
+    <p class="text-info">
+       <span class="product-name-title"> {{product.name}}:</span> {{product.description}}<br />
+    </p>
+  </div>
+</div>
+<div class="clear"></div>
+    <div class="col-md-12 content-backcolor">
+        <div class="col-md-8">
+
+            <!-- product info -->
+            <table class="table table-bordered">
+
+                <tr class="wellX">
+                    <td class="tdRight" colspan="3" >
+                        <a href="index.html#/cart" class="cart-txt-color" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                        
+                            <i class="material-icons" style="margin-bottom:-10px">&#xE8CC;</i> 
+                            <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                            <span class="txt-cart-prod" ng-show="cart.getTotalCount(product.code) > 0"><br />This item is in your cart.</span>
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="tdRight detail-img"><img ng-src="{{detail.src1}}" alt="{{detail.component}}"/></td>
+                    <td class="tdRight detail-title"><p>{{detail.component}}</p></td>
+                    <td class="tdCenter detail-desc"><p>{{detail.processor}}</p></td>
+                </tr>
+                <tr>
+                    <td class="tdRight detail-img"><img ng-src="{{detail.src2}}" alt="{{detail.component2}}"/></td>
+                    <td class="tdRight detail-title"><p>{{detail.component2}}</p></td>
+                    <td class="tdCenter detail-desc"><p>{{detail.memory}}</p></td>
+                </tr>
+                <tr>
+                    <td class="tdRight detail-img2"><img ng-src="{{detail.src3}}" alt="{{detail.component3}}"/></td>
+                    <td class="tdRight detail-title"><p>{{detail.component3}}</p></td>
+                    <td class="tdCenter detail-desc"><p>{{detail.drive}}</p></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- buttons -->
+        <div class="col-md-4">
+            <button 
+                class="btn btn-block btn-success" 
+                ng-click="cart.addItem(product.code, product.name, product.price, 1)">
+                <i class="icon-shopping-cart icon-white" /> add to cart
+            </button>
+            <button 
+                class="btn btn-block btn-danger" 
+                ng-click="cart.addItem(product.code, product.name, product.price, -10000)"
+                ng-disabled="cart.getTotalCount(product.code) < 1">
+                <i class="icon-trash icon-white" /> remove from cart
+            </button>
+            <button 
+                class="btn btn-block" 
+                onclick="window.location.href=''">
+                <i class="icon-chevron-left" /> back to store
+            </button>
+        </div>
+    </div>
+

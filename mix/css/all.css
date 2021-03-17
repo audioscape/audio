@@ -176,15 +176,6 @@ a:hover {text-decoration: underline}
 	font-family:courier; background:#555; 
 	padding:10px 10px 10px 20px; margin-left:0px;
 }
-.bookTitle {
-	font-family: Interstate, Helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 12pt;
-}
-.mainTitle {
-	font-family: WhitmanDisplay, Georgia, serif;
-	font-size: 24pt;
-}
 .footer { font-size: 0.7em; margin: 0 0 20px 0px; padding: 15px 0px 0px 30px; list-style: none; 
 border-top: 1px dotted #c7ccd3; overflow: auto; }
 .footer li { text-align: left; float: left; color: #999999; }

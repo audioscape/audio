@@ -140,6 +140,28 @@ blockquote {
         color: #fff;
         opacity: .8;
     }
+    .bookTitle {
+        font-size: 24px;
+        font-weight: 400;
+        color: #fff;
+        opacity: .8;
+    }
+    .chapterTitle {
+    	margin-top:48px;
+    	font-size:52px;
+    	position:fixed; 
+    	left:0px; right:0px; 
+    	text-align:center;
+    	color:#fff;
+    	font-weight: 400;
+    }
+    .chapterSubtitle {
+    	font-size:28px;
+    	position:fixed;
+    	left:0px; right:0px; 
+    	text-align:center;
+    	font-weight: 400;
+    }
     .storybox {
         clear:both;
         height:200px;
@@ -320,11 +342,7 @@ a:hover {text-decoration: underline}
 	font-size: 11pt;
 	border-left: 6px solid #222;
 }
-.bookTitle {
-	font-family: Interstate, Helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 12pt;
-}
+
 
 #footerX {
 	padding-left: 30px;

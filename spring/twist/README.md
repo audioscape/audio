@@ -28,7 +28,8 @@ So, she had it rough. I didn’t know this stuff. All I knew was that she was ni
 
 I asked my mother what are we going to do?  My mother said that she would live with us from Monday to Friday and while I was at work, she would teach her to read and write, but you have to act like  you don’t know. She knows your intellect and she would be destroyed if she knew that you had an idea.  
   
-So for two years, my mother taught her to read and write. Eventually, she applied to UCLA Women’s studies and with the help of special education resources graduated from UCLA.   
+So for two years, my mother taught her to read and write. Eventually, she applied to UCLA Women’s Studies and with the help of special education resources graduated from UCLA.  
+
 She is now the manager of a funeral home and does pretty well for herself.  
   
 Unfortunately, business is good these days (due to Covid).  

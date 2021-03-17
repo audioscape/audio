@@ -64,7 +64,6 @@ var voices = [], voice, chunkLength = 120, lastfeedReadByDateIndex = 0,
             + '}$|^[\\s\\S]{1,' + chunkLength + '} ')
     ;
 
-
 $(document).ready(function () {
     
     var block_to_insert;
@@ -118,7 +117,6 @@ $(document).ready(function () {
                       currentSentenceIndex = currentSentenceIndex-1; // Since canceling adds 1 when speaking
                     }
                     u.voice = voice;
-
                     playAudio(currentSentenceIndex); 
                     //window.speechSynthesis.speak(u);
 
@@ -129,7 +127,7 @@ $(document).ready(function () {
                       currentSentenceIndex = currentSentenceIndex-1; // Since canceling adds 1 when speaking
                     }
                     u.voice = voice;
-
+                    console.log("speechSynthesis cancel");
                     playAudio(currentSentenceIndex);
                     //window.speechSynthesis.speak(u);
                 }
@@ -191,7 +189,7 @@ $(document).ready(function () {
             // if paused & pending, restart the utterance.
             console.log('should resume if interupted');
             window.speechSynthesis.resume();
-            
+            console.log("resume audio")
         } else {
 
             //window.speechSynthesis.cancel(); // Seems to be needed to clear after reload.

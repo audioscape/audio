@@ -1,4 +1,7 @@
+// Issues:
+// Currently requires all text to be in <p> tags.
 
+var audioVoice = "Fiona";
 function removeOptions(selectbox)
 {
     var i;
@@ -8,7 +11,7 @@ function removeOptions(selectbox)
     }
 }
 
-function populateVoiceList() {
+function populateVoiceList(theVoice) {
   if(typeof speechSynthesis === 'undefined') {
     return;
   }
@@ -30,6 +33,9 @@ function populateVoiceList() {
     return 0;
   });
 
+  if (typeof theVoice == "string") { // theVoice is an object - when populateVoiceList function is called below without parameters. Good to change that.
+    audioVoice = theVoice;
+  }
   console.log(voices)
   for(i = 0; i < voices.length ; i++) {
     var option = document.createElement('option');
@@ -39,7 +45,7 @@ function populateVoiceList() {
     option.setAttribute('data-name', voices[i].name);
 
     
-    if (voices[i].name == "Fiona") {
+    if (voices[i].name == audioVoice) {
         voice = voices[i];
         option.setAttribute('selected', "selected");
     }
@@ -65,7 +71,10 @@ var voices = [], voice, chunkLength = 120, lastfeedReadByDateIndex = 0,
     ;
 
 $(document).ready(function () {
-    
+    //initAudio();
+});
+
+function initAudio(theVoice, callback) {
     var block_to_insert;
     var container_block;
     var buttons_to_insert;
@@ -87,7 +96,6 @@ $(document).ready(function () {
     //buttons_to_insert.innerHTML += '<i class="skipNext material-icons">skip_next</i>';
     container_block.appendChild( buttons_to_insert ); 
         
-
 
     let currentSentenceIndex = 0;
     window.speechSynthesis.cancel();
@@ -226,7 +234,6 @@ $(document).ready(function () {
 
 
   // populate voice list -- starts
-
   if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
   }
@@ -240,6 +247,9 @@ $(document).ready(function () {
         u.voice = voice;
         u.index = index;
         u.rate = .85;
+        if (audioVoice == "Alex") {
+            u.rate = .95;
+        }
         u.onend = function (event) {
             //t = event.timeStamp - t;
             //console.log(event.timeStamp);
@@ -253,7 +263,7 @@ $(document).ready(function () {
     };
   }
 
-  populateVoiceList();
-});
+  populateVoiceList(theVoice);
+}
 
 

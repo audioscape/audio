@@ -147,6 +147,8 @@ blockquote {
         opacity: .8;
     }
     .chapterTitle {
+    	position:fixed; left:0px; right:0px; text-align:center; margin-top:60px; color:#fff; font-size:24px
+    	/*
     	margin-top:48px;
     	font-size:52px;
     	position:fixed; 
@@ -154,6 +156,7 @@ blockquote {
     	text-align:center;
     	color:#fff;
     	font-weight: 400;
+    	*/
     }
     .chapterSubtitle {
     	font-size:28px;

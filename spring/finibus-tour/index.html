@@ -33,7 +33,7 @@
 	param.headerLogoX = "<img src='img/logo/[].png' style='width:28px'>";
     param.headerFileX = "../../header.html"
     param.footer = "../../footer.html"
-    $(window).scroll(function(){$(".herocenter").css("opacity", 1 - $(window).scrollTop() / 200);});
+    $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
 </script>
 <style>
 	.showMenu {
@@ -79,13 +79,13 @@
         <img src="img/logo/projectmuse-text.png" style="width:100%;max-width:250px; margin-left:20px" />
         -->
         <div class="mainTitle">
-        finnibus tour
+        tar and steel
         </div>
     </div>
 
     <div class="fade-in text-flowX" style="position:fixed; left:0px; right:0px; 
     text-align:center; margin-top:60px; color:#fff; font-size:24px">
-        Epicurean Delight
+        Finnibus Tour
 
         
         <div id="play-button" style="font-size: 48px; margin-top:50px; margin-left:2px">
@@ -99,9 +99,9 @@
 <a href="#go"><img class="fixedBkgdX backgroundAbsoluteX" src="img/finibus-road-crop.jpg" style="width:100%; z-index:0" alt="" /></a>
 
 
-
+<a name="go"></a>
 <div id="floatContent" class="container floatContainerX" style="margin-top:100px">
-	<a name="go"></a>
+	
 
 	<div class="content">
 
@@ -191,7 +191,7 @@ Opening Act - Liam with Easy Big Fella
 </div>
 
 <p>
-<a href="../../gathering-cats/unwinding/" parent="moog">Tar and Steel</a>
+<a href="../../edge-of-the-world.html" parent="moog">Edge of the World</a>
 </p>
 
 <div class="main wrapleft local" style="display:none">

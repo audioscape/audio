@@ -19,7 +19,7 @@
 	param.footer = "footer.html"
     param.headerLogo = "🎧 "; // headphones
 
-    $(window).scroll(function(){$(".herocenter").css("opacity", 1 - $(window).scrollTop() / 200);});
+    $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
 </script>
 
 <style>

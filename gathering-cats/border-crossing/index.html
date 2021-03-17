@@ -42,7 +42,7 @@
     param.headerLogoX = "<img src='img/logo/[].png' style='width:28px'>";
     param.headerFileX = "../../header.html"
     param.footer = "../../footer.html"
-    $(window).scroll(function(){$(".herocenter").css("opacity", 1 - $(window).scrollTop() / 200);});
+    $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
   </script>
   <style type='text/css'>
     .showMenu {
@@ -199,12 +199,10 @@ hopefully lead him to one the world's foremost mathematicians, Oseph Easthay. A 
 
 <p style="display:none;" class="local"><a href="../../cat-star/">Winter on an Island</a></p>
 
-<p style="display:none;" class="local"><a href="../../spring/finibus-tour/">Finibus Tour - How Michael met Mitch</a></p>
-
 <p style="display:none;" class="local"><a href="../../winter/challenge/">The Cast - Winter Challenge - Michael tussles with David</a></p>
 
 
-<p><a href="../../edge-of-the-world.html">Edge of the World</a></p>
+<p><a href="../../">Return Home - Tune in again soon for Cat Star</a></p>
 
 <br><a href="../../">&copy; 2021 Audioscape</a><br><br>
 

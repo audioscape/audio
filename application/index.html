@@ -1,29 +1,50 @@
 <!DOCTYPE>
 <html>
 <head>
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-  <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/common/common.js"></script>
   <link rel="stylesheet" type="text/css" href="../css/all.css">
-
-  <title>Audioscape - Day One</title>
+  <title>Travel School Application</title>
   <meta name="robots" content="noindex,nofollow" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/all.css" />
+
+  <link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/base.css" />
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/d3.v5.min.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/jquery.min.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/localsite.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/showdown.min.js"></script>
+  <script type="text/javascript" src="https://neighborhood.org/localsite/js/navigation.js"></script>
+  <!--
+  <link type="text/css" rel="stylesheet" href="https://neighborhood.org/localsite/css/bootstrap.darkly.min.css">
+  -->
+  <script type="text/javascript" src="/audioscape/js/common/common.js"></script>
+  <script>
+      param.titleArray = ["audio","scape"]
+      param.headerLogo = "🎧 "; // headphones
+      param.startTitle = "AudioScape"
+      param.headerFileX = "../../header.html"
+      param.footer = "../../footer.html"
+      $(window).scroll(function(){let toZero = 1-$(window).scrollTop()/200; $(".herocenter").css("opacity", toZero); if (toZero <= 0) {$(".herocenter").hide()} else {$(".herocenter").show();}});
+  </script>
+
 
 </head>
 
 <body>
-<img class="fixedBkgd" src="../img/universe/milkyway-atlantic.jpg" alt="" />
+<img class="fixedBkgdX" src="../img/universe/milkyway-atlantic.jpg" alt="" />
 
 <div class="container" >
-<div class="content">
+<div class="content contentpadding">
 
 
 <a href="../" class="returnhome">Audioscape</a>
 
-<h1>Day One</h1>
+<h1>Travel School</h1>
 
 <p>
-	Jill's covid-25 results were good, as were the rest of her family's. They would remain in the hotel another four days as an 
+	Jill's Covid-25 results were good, as were the rest of her family's. They would remain in the hotel another four days as an 
 	added precaution before traveling to the island.  The stay in the hotel was an opportunity for the students to get to know each other before their trek began.
 </p>
 
@@ -60,6 +81,10 @@ Wilem talked about growing up in North Carolina near the coast, Audry related ex
 <img src="img/open-air-cruise.jpg" style="float:right; max-width: 180px">
 
 <p>
+	<a href="../winter/lancroft/">Halcion - Lancroft Enterprises</a>
+</p>
+
+<p>
 	<a href="../the-inner-inlet/">The Inner Inlet - by Wilem Wilkens</a>
 </p>
 <p>
@@ -74,9 +99,8 @@ Wilem talked about growing up in North Carolina near the coast, Audry related ex
 
 
 
-<ul class="footer">
-  <li><a href="../">&copy; 2021 Audioscape</a></li>
-</ul>
+<br>
+<a href="../">&copy; 2021 Audioscape</a><br><br>
 
 </div>
 </div>
